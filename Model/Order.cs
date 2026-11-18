@@ -1,4 +1,4 @@
-﻿namespace BlazingPizza;
+namespace BlazingPizza;
 
 public class Order
 {
@@ -14,5 +14,5 @@ public class Order
 
     public decimal GetTotalPrice() => Pizzas.Sum(p => p.GetTotalPrice());
 
-    public string GetFormattedTotalPrice() => GetTotalPrice().ToString("0.00");
+    public string GetFormattedTotalPrice() => PriceFormatter.Format(GetTotalPrice());
 }

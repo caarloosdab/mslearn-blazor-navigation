@@ -11,6 +11,12 @@ body {
     overflow-y: hidden;
 }
 
+#app {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 5rem);
+}
+
 form {
     width: 100%;
 }
@@ -46,9 +52,21 @@ form {
 
 .content {
     display: flex;
-    height: 100%;
+    flex: 1;
+    min-height: 0;
     z-index: 1;
     background-color: white;
+}
+
+footer {
+    flex: none;
+    padding: 0.5rem 1rem;
+    text-align: center;
+}
+
+#app:has(.sidebar) > footer {
+    width: calc(100% - 20rem);
+    box-sizing: border-box;
 }
 
 .main {
@@ -198,13 +216,6 @@ form {
         line-height: 2rem;
     }
 
-.price::before {
-    content: '£';
-    font-weight: 300;
-    font-size: 1.2rem;
-    margin-right: 0.2rem;
-}
-
 .sidebar {
     background-color: #2b2b2b;
     width: 20rem;
@@ -249,12 +260,6 @@ form {
         font-weight: 700;
         font-size: 1.5rem;
     }
-
-        .order-total .total-price::before {
-            content: '£';
-            font-weight: 300;
-            margin: 0 0.1rem 0 0.4rem;
-        }
 
     .order-total .btn {
         margin-left: auto;
@@ -306,12 +311,6 @@ form {
 .item-price {
     font-weight: 500;
 }
-
-    .item-price::before {
-        content: '£';
-        font-weight: 100;
-        margin-right: 0.3rem;
-    }
 
 .delete-item {
     position: absolute;
@@ -452,10 +451,6 @@ form {
 .dialog .topping-price {
     font-weight: 100;
     font-size: 0.8rem;
-}
-
-.dialog .topping-price::before {
-    content: '£';
 }
 
 .delete-topping {
